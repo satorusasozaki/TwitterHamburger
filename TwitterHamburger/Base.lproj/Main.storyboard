@@ -48,9 +48,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ContentView" destination="lgM-8B-wVm" id="9jR-OM-sK8"/>
-                        <outlet property="MenuView" destination="sSr-B4-npt" id="0wG-g1-9ur"/>
                         <outlet property="contentLeftMarginConstraint" destination="2Wf-Nq-Fdj" id="GSl-QP-BWd"/>
+                        <outlet property="contentView" destination="lgM-8B-wVm" id="eZz-D9-0dW"/>
+                        <outlet property="menuView" destination="sSr-B4-npt" id="Cvn-7N-yxR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4v-cm-rPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,12 +60,12 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-175.19999999999999" y="-866.71664167916049"/>
+            <point key="canvasLocation" x="-173" y="-978"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="0LO-AX-lzE">
             <objects>
-                <viewController id="Hic-7X-5dV" customClass="MenuViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="Hic-7X-5dV" customClass="MenuViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RhC-jE-LkM"/>
                         <viewControllerLayoutGuide type="bottom" id="ugi-4p-Bim"/>
