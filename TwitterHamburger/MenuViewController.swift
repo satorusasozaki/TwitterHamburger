@@ -37,18 +37,26 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewControllers.count
+        return viewControllers.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
-        let titles = ["Profile", "Timeline", "Mentions"]
-        cell.viewControllerLabel.text = titles[indexPath.row]
+        if indexPath.row == 3 {
+            cell.viewControllerLabel.text = "Logout"
+        } else {
+            let titles = ["Profile", "Timeline", "Mentions"]
+            cell.viewControllerLabel.text = titles[indexPath.row]
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        if indexPath.row == 3 {
+            TwitterClient.sharedInstance.logout()
+        } else {
+            hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        }
     }
 }

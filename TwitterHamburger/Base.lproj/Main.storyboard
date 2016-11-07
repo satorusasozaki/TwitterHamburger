@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zm3-Bi-SFo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="crh-cg-Y63">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,46 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="cm8-3x-6Vt">
+            <objects>
+                <viewController id="crh-cg-Y63" customClass="LoginViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gTG-Z1-zyC"/>
+                        <viewControllerLayoutGuide type="bottom" id="ViY-Xb-PHg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dKS-UV-A3I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zB-QF-VMJ">
+                                <rect key="frame" x="51" y="400" width="272" height="120"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Login With Twitter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLoginButton:" destination="crh-cg-Y63" eventType="touchUpInside" id="BjW-z4-aP6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6zB-QF-VMJ" firstAttribute="top" secondItem="gTG-Z1-zyC" secondAttribute="bottom" constant="380" id="3r7-Dv-SES"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6zB-QF-VMJ" secondAttribute="trailing" constant="36" id="PNy-h3-aE1"/>
+                            <constraint firstItem="6zB-QF-VMJ" firstAttribute="leading" secondItem="dKS-UV-A3I" secondAttribute="leadingMargin" constant="35" id="euc-Y2-Z5Q"/>
+                            <constraint firstItem="ViY-Xb-PHg" firstAttribute="top" secondItem="6zB-QF-VMJ" secondAttribute="bottom" constant="147" id="qlq-Ug-RoF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rjl-ON-49s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159.19999999999999" y="-1658.3208395802101"/>
+        </scene>
         <!--Hamburger View Controller-->
         <scene sceneID="4im-S5-dfb">
             <objects>
-                <viewController id="zm3-Bi-SFo" customClass="HamburgerViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HamburgerViewController" id="zm3-Bi-SFo" customClass="HamburgerViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vj6-0T-8Xu"/>
                         <viewControllerLayoutGuide type="bottom" id="3Sq-6f-vHz"/>
@@ -76,19 +112,21 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zkb-c2-eUQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MenuCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="89" id="lXu-J2-Ymo" customClass="MenuCell" customModule="TwitterHamburger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lXu-J2-Ymo" id="gwk-I3-DJu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJw-q7-gWh">
                                                     <rect key="frame" x="8" y="18" width="202" height="52.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -98,6 +136,7 @@
                                                 <constraint firstItem="qJw-q7-gWh" firstAttribute="leading" secondItem="gwk-I3-DJu" secondAttribute="leadingMargin" id="n35-gS-QJI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="viewControllerLabel" destination="qJw-q7-gWh" id="lsP-4g-CCV"/>
                                         </connections>
@@ -122,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="-172" y="-254"/>
         </scene>
-        <!--Green View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="RRP-wh-szu">
             <objects>
-                <viewController id="YWn-kx-PYp" customClass="GreenViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YWn-kx-PYp" customClass="ProfileViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DAv-FI-fuB"/>
                         <viewControllerLayoutGuide type="bottom" id="4cm-ON-Wu5"/>
@@ -142,7 +181,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F9j-1S-VcS" id="DKW-3V-f4t">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-GX-LKN">
@@ -172,7 +211,7 @@
                                         <rect key="frame" x="0.0" y="196" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aIQ-tm-6MR" id="AiB-Dv-0k8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -180,7 +219,7 @@
                                         <rect key="frame" x="0.0" y="270" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mwa-it-1Jb" id="etg-mm-bH6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="144.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -201,10 +240,10 @@
             </objects>
             <point key="canvasLocation" x="-844" y="1176.1619190404799"/>
         </scene>
-        <!--Red View Controller-->
+        <!--Timeline View Controller-->
         <scene sceneID="MR1-zY-2Ac">
             <objects>
-                <viewController id="dJR-2i-wuJ" customClass="RedViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dJR-2i-wuJ" customClass="TimelineViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="urT-qv-Yqa"/>
                         <viewControllerLayoutGuide type="bottom" id="pcP-08-O8i"/>
@@ -220,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="-172" y="1176"/>
         </scene>
-        <!--Blue View Controller-->
+        <!--Mentions View Controller-->
         <scene sceneID="wOv-OS-LKg">
             <objects>
-                <viewController id="utj-cb-CnB" customClass="BlueViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="utj-cb-CnB" customClass="MentionsViewController" customModule="TwitterHamburger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gaS-9h-Yld"/>
                         <viewControllerLayoutGuide type="bottom" id="edk-nc-RjW"/>

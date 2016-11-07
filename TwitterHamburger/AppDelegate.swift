@@ -15,11 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let hamburgerViewController = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
         let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-        menuViewController.hamburgerViewController = hamburgerViewController
-        hamburgerViewController.menuViewController = menuViewController
+        if User.currentUser != nil {
+            window?.rootViewController = hamburgerViewController
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
+        }
+
+        NotificationCenter.default.addObserver(forName: User.userDidLogoutNotification, object: nil, queue: OperationQueue.main, using: {(Notification) -> Void in
+            let initialVC = storyboard.instantiateInitialViewController()
+            UIView.transition(with: self.window!, duration: 0.3, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+                let oldState: Bool = UIView.areAnimationsEnabled
+                UIView.setAnimationsEnabled(false)
+                self.window?.rootViewController = initialVC
+                UIView.setAnimationsEnabled(oldState)
+            }, completion: { (animated: Bool) in
+                
+            })
+        })
         return true
     }
 
@@ -43,6 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        TwitterClient.sharedInstance.handleOpenUrl(url: url)
+        return true
     }
 
 
