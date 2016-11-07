@@ -22,14 +22,30 @@ class HamburgerViewController: UIViewController {
     
     var contentViewController: UIViewController! {
         didSet {
+            self.view.layoutIfNeeded()
+            
+            if oldValue != nil {
+                oldValue.willMove(toParentViewController: nil)
+                oldValue.removeFromParentViewController()
+                oldValue.didMove(toParentViewController: nil)
+            }
+            
+            contentViewController.willMove(toParentViewController: self) // calls willAppear on contentViewController
             contentView.addSubview(contentViewController.view)
+            contentViewController.didMove(toParentViewController: self) // calls didAppear on contentVC
+            UIView.animate(withDuration: 0.3, animations: {
+                self.contentLeftMarginConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
     @IBOutlet weak var contentLeftMarginConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBAction func onPanGesture(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: self.view)
         let velocity = sender.velocity(in: self.view)

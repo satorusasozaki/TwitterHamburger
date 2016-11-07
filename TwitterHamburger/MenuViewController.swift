@@ -30,6 +30,8 @@ class MenuViewController: UIViewController {
         viewControllers.append(greenNavigationController)
         viewControllers.append(blueNavigationController)
         viewControllers.append(redNavigationController)
+        
+        hamburgerViewController.contentViewController = greenNavigationController
     }
 }
 
