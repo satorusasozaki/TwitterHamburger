@@ -11,9 +11,9 @@ import UIKit
 class MenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    private var greenNavigationController: UIViewController!
-    private var blueNavigationController: UIViewController!
-    private var redNavigationController: UIViewController!
+    private var profileNavigationController: UIViewController!
+    private var timelineNavigationController: UIViewController!
+    private var mentionsNavigationController: UIViewController!
     
     var viewControllers: [UIViewController] = []
     var hamburgerViewController: HamburgerViewController!
@@ -23,15 +23,15 @@ class MenuViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
 
-        greenNavigationController = storyboard?.instantiateViewController(withIdentifier: "greenNavigationController")
-        blueNavigationController = storyboard?.instantiateViewController(withIdentifier: "blueNavigationController")
-        redNavigationController = storyboard?.instantiateViewController(withIdentifier: "redNavigationController")
+        profileNavigationController = storyboard?.instantiateViewController(withIdentifier: "profileNavigationController")
+        timelineNavigationController = storyboard?.instantiateViewController(withIdentifier: "timelineNavigationController")
+        mentionsNavigationController = storyboard?.instantiateViewController(withIdentifier: "mentionsNavigationController")
         
-        viewControllers.append(greenNavigationController)
-        viewControllers.append(blueNavigationController)
-        viewControllers.append(redNavigationController)
+        viewControllers.append(profileNavigationController)
+        viewControllers.append(timelineNavigationController)
+        viewControllers.append(mentionsNavigationController)
         
-        hamburgerViewController.contentViewController = greenNavigationController
+        hamburgerViewController.contentViewController = profileNavigationController
     }
 }
 
@@ -42,7 +42,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
-        let titles = ["Green", "Blue", "Red"]
+        let titles = ["Profile", "Timeline", "Mentions"]
         cell.viewControllerLabel.text = titles[indexPath.row]
         return cell
     }

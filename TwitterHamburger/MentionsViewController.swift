@@ -1,14 +1,14 @@
 //
-//  GreenViewController.swift
+//  MentionsViewController.swift
 //  TwitterHamburger
 //
-//  Created by Satoru Sasozaki on 11/6/16.
+//  Created by Satoru Sasozaki on 11/7/16.
 //  Copyright © 2016 Satoru Sasozaki. All rights reserved.
 //
 
 import UIKit
 
-class GreenViewController: UIViewController {
+class MentionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
