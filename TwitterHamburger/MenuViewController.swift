@@ -16,6 +16,7 @@ class MenuViewController: UIViewController {
     private var redNavigationController: UIViewController!
     
     var viewControllers: [UIViewController] = []
+    var hamburgerViewController: HamburgerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,5 +43,10 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         let titles = ["Green", "Blue", "Red"]
         cell.viewControllerLabel.text = titles[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
     }
 }
