@@ -21,12 +21,46 @@
                     <view key="view" contentMode="scaleToFill" id="C4f-6N-f2R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSr-B4-npt" userLabel="Menu View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgM-8B-wVm" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RM3-oo-4ec" appends="YES" id="Bu6-hG-c95"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lgM-8B-wVm" firstAttribute="leading" secondItem="C4f-6N-f2R" secondAttribute="leading" id="2Wf-Nq-Fdj"/>
+                            <constraint firstItem="sSr-B4-npt" firstAttribute="top" secondItem="C4f-6N-f2R" secondAttribute="top" id="HR9-aT-jGL"/>
+                            <constraint firstItem="3Sq-6f-vHz" firstAttribute="top" secondItem="lgM-8B-wVm" secondAttribute="bottom" id="I2F-7Y-8ge"/>
+                            <constraint firstItem="lgM-8B-wVm" firstAttribute="width" secondItem="C4f-6N-f2R" secondAttribute="width" id="MgD-os-J21"/>
+                            <constraint firstItem="sSr-B4-npt" firstAttribute="leading" secondItem="C4f-6N-f2R" secondAttribute="leading" id="Noy-ST-Z9t"/>
+                            <constraint firstItem="3Sq-6f-vHz" firstAttribute="top" secondItem="sSr-B4-npt" secondAttribute="bottom" id="atI-gj-DeQ"/>
+                            <constraint firstAttribute="trailing" secondItem="sSr-B4-npt" secondAttribute="trailing" id="bB3-aa-q0S"/>
+                            <constraint firstItem="lgM-8B-wVm" firstAttribute="top" secondItem="C4f-6N-f2R" secondAttribute="top" id="clu-Py-GcY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ContentView" destination="lgM-8B-wVm" id="9jR-OM-sK8"/>
+                        <outlet property="MenuView" destination="sSr-B4-npt" id="0wG-g1-9ur"/>
+                        <outlet property="contentLeftMarginConstraint" destination="2Wf-Nq-Fdj" id="GSl-QP-BWd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4v-cm-rPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="RM3-oo-4ec">
+                    <connections>
+                        <action selector="onPanGesture:" destination="zm3-Bi-SFo" id="QJu-xy-0R2"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-174" y="-866"/>
+            <point key="canvasLocation" x="-175.19999999999999" y="-866.71664167916049"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="0LO-AX-lzE">
@@ -85,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbr-an-APp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172" y="-201"/>
+            <point key="canvasLocation" x="-172" y="-188"/>
         </scene>
         <!--Green View Controller-->
         <scene sceneID="RRP-wh-szu">
