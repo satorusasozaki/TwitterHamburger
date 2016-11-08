@@ -49,6 +49,7 @@ extension MentionsViewController: UITableViewDataSource, UITableViewDelegate {
             cell.profileImageView.setImageWith(profileImageUrl)
         }
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.screennameLabel.text = tweet.screenname
         cell.usernameLabel.text = tweet.username
         cell.tweetTextLabel.text = tweet.text
@@ -58,5 +59,15 @@ extension MentionsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let tweet = tweets[indexPath.row]
+        let userId = tweet.userId
+        let screenname = tweet.screenname
+        TwitterClient.sharedInstance.showUser(userId: userId, screenname: screenname, success: {(user: User) in
+            let profileViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            profileViewController.user = user
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+        } , failure: {(error: Error) in
+            print(error.localizedDescription)
+        })
     }
 }

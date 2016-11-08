@@ -50,6 +50,7 @@ extension TimelineViewController: UITableViewDelegate, UITableViewDataSource {
             cell.profileImageView.setImageWith(profileImageUrl)
         }
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.screennameLabel.text = "@" + tweet.screenname!
         cell.usernameLabel.text = tweet.username!
         cell.tweetTextLabel.text = tweet.text!
