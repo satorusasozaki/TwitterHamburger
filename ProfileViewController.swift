@@ -10,8 +10,9 @@ import UIKit
 import MBProgressHUD
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
+    var user: User = User.currentUser!
     var tweets: [Tweet]!
     var bannerImageUrl: URL?
     
@@ -23,7 +24,7 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 200
         let hud = MBProgressHUD()
         hud.show(animated: true)
-        TwitterClient.sharedInstance.userTimeline(success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance.userTimeline(user: user, success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
             hud.hide(animated: true)
@@ -54,11 +55,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as! HeaderCell
             
-            if let profileUrl = User.currentUser?.profileUrl {
+            if let profileUrl = user.profileUrl {
                 cell.profileImageView.setImageWith(profileUrl)
             }
             
-            if let backgroundImageUrl = User.currentUser?.backgroundImageUrl {
+            if let backgroundImageUrl = user.backgroundImageUrl {
                 cell.backgroundImageView.setImageWith(backgroundImageUrl)
             }
             
@@ -66,9 +67,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "StatsCell", for: indexPath) as! StatsCell
-            cell.tweetsLabel.text = String(describing: (User.currentUser?.tweetCount)!)
-            cell.followingLabel.text = String((User.currentUser?.followingCount)!)
-            cell.followersLabel.text = String((User.currentUser?.followersCount)!)
+            cell.tweetsLabel.text = String(describing: (user.tweetCount)!)
+            cell.followingLabel.text = String((user.followingCount)!)
+            cell.followersLabel.text = String((user.followersCount)!)
             return cell
         }
         

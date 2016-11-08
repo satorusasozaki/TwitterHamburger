@@ -12,6 +12,7 @@ import MBProgressHUD
 class MentionsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var user: User = User.currentUser!
     var tweets: [Tweet]!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class MentionsViewController: UIViewController {
         tableView.estimatedRowHeight = 200
         let hud = MBProgressHUD()
         hud.show(animated: true)
-        TwitterClient.sharedInstance.mentionsTimeline(success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance.mentionsTimeline(user: user, success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
             hud.hide(animated: true)

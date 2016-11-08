@@ -78,8 +78,10 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func userTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
-        get("1.1/statuses/user_timeline.json", parameters: nil, progress: nil, success: {(_, response: Any?) in
+    func userTimeline(user: User?, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        let id: [String:String] = ["id":String((user?.id)!)]
+
+        get("1.1/statuses/user_timeline.json", parameters: id, progress: nil, success: {(_, response: Any?) in
             let tweets = Tweet.tweetsWithArray(dictionaries: response as! [AnyObject])
             success(tweets)
         }, failure: {(_, error: Error) in
@@ -87,14 +89,29 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func mentionsTimeline(success: @escaping ([Tweet])->(), failure: @escaping (Error)->()) {
-        get("1.1/statuses/mentions_timeline.json", parameters: nil, progress: nil, success: {(_, response: Any?) -> Void in
+    func mentionsTimeline(user: User?, success: @escaping ([Tweet])->(), failure: @escaping (Error)->()) {
+        let id: [String:String] = ["id":String((user?.id)!)]
+
+        get("1.1/statuses/mentions_timeline.json", parameters: id, progress: nil, success: {(_, response: Any?) -> Void in
             let tweets = Tweet.tweetsWithArray(dictionaries: response as! [AnyObject])
             success(tweets)
         }, failure: {(_, error: Error) -> Void in
             failure(error)
         })
     }
+    
+    func showUser(userId: String?, screenname: String?, success: @escaping (User)->(), failure: @escaping (Error)->()) {
+        let idAndScreenname: [String:String] = ["id":userId!, "screen_name": screenname!]
+        get("1.1/users/show.json", parameters: idAndScreenname, progress: nil, success: {(_, response: Any?) -> Void in
+            let userDictionary = response as! [String:AnyObject]
+            let user = User(dictionary: userDictionary)
+            success(user)
+        }, failure: {(_, error: Error) -> Void in
+            failure(error)
+        })
+    }
+    
+    
     
     func getProfileBanner(success: @escaping (URL) -> (), failure: @escaping (Error) -> ()) {
         let id: [String:String] = ["id":String((User.currentUser?.id)!)]

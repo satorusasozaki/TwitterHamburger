@@ -14,6 +14,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var screennameLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
+    var userId: Int?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,8 +25,4 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func onUserImage(_ sender: UIButton) {
-        print("user image tapped")
-    }
-
 }
