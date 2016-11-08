@@ -294,8 +294,8 @@
                                                         <constraint firstAttribute="width" constant="90" id="sxw-Go-GgP"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screenname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-kn-ug1">
-                                                    <rect key="frame" x="125" y="8" width="96" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-kn-ug1">
+                                                    <rect key="frame" x="125" y="8" width="76" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -306,8 +306,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01k-Yk-wzi">
-                                                    <rect key="frame" x="224" y="8" width="84" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@screenname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01k-Yk-wzi">
+                                                    <rect key="frame" x="204" y="8" width="98" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -317,10 +317,12 @@
                                                 <constraint firstItem="oal-8K-0Tw" firstAttribute="leading" secondItem="xkF-JT-KMM" secondAttribute="trailing" constant="27" id="1vj-U3-Njj"/>
                                                 <constraint firstItem="oal-8K-0Tw" firstAttribute="top" secondItem="zd0-kn-ug1" secondAttribute="bottom" constant="14" id="2cZ-PL-olg"/>
                                                 <constraint firstItem="xkF-JT-KMM" firstAttribute="top" secondItem="etg-mm-bH6" secondAttribute="topMargin" id="2gq-KF-EST"/>
+                                                <constraint firstItem="01k-Yk-wzi" firstAttribute="baseline" secondItem="zd0-kn-ug1" secondAttribute="baseline" id="IZG-AK-xUg"/>
                                                 <constraint firstItem="zd0-kn-ug1" firstAttribute="top" secondItem="etg-mm-bH6" secondAttribute="topMargin" id="J87-RR-RZY"/>
                                                 <constraint firstItem="zd0-kn-ug1" firstAttribute="leading" secondItem="xkF-JT-KMM" secondAttribute="trailing" constant="27" id="Z3h-bx-tOq"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="xkF-JT-KMM" secondAttribute="bottom" constant="30" id="dxG-oW-9UW"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="xkF-JT-KMM" secondAttribute="bottom" priority="999" constant="30" id="dxG-oW-9UW"/>
                                                 <constraint firstItem="xkF-JT-KMM" firstAttribute="leading" secondItem="etg-mm-bH6" secondAttribute="leadingMargin" id="fLA-3d-aT6"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="oal-8K-0Tw" secondAttribute="bottom" constant="73" id="gYD-GI-KjX"/>
                                                 <constraint firstItem="oal-8K-0Tw" firstAttribute="trailing" secondItem="etg-mm-bH6" secondAttribute="trailingMargin" id="hkg-Gp-gUy"/>
                                                 <constraint firstItem="01k-Yk-wzi" firstAttribute="top" secondItem="etg-mm-bH6" secondAttribute="topMargin" id="mTl-Y3-gJk"/>
                                                 <constraint firstItem="01k-Yk-wzi" firstAttribute="leading" secondItem="zd0-kn-ug1" secondAttribute="trailing" constant="3" id="zcd-Da-Lz3"/>
@@ -328,9 +330,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="profileImageView" destination="xkF-JT-KMM" id="1VZ-vz-nQS"/>
-                                            <outlet property="screennameLabel" destination="zd0-kn-ug1" id="pHH-Rh-MWb"/>
+                                            <outlet property="screennameLabel" destination="01k-Yk-wzi" id="cLF-WO-aC1"/>
                                             <outlet property="tweetTextLabel" destination="oal-8K-0Tw" id="Bsg-wj-FfE"/>
-                                            <outlet property="usernameLabel" destination="01k-Yk-wzi" id="BAh-WU-6sT"/>
+                                            <outlet property="usernameLabel" destination="zd0-kn-ug1" id="127-Lc-BJT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

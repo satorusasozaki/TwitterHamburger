@@ -40,7 +40,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let tweets = tweets {
-            return tweets.count + 2
+            return tweets.count
         }
         return 2
     }
@@ -68,6 +68,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        let tweet = tweets[indexPath.row]
+        
+        if let profileImageUrl = tweet.profileImageUrl {
+            cell.profileImageView.setImageWith(profileImageUrl)
+        }
+        
+        cell.screennameLabel.text = "@" + tweet.screenname!
+        cell.usernameLabel.text = tweet.username!
+        cell.tweetTextLabel.text = tweet.text!
+        
         return cell
     }
 }
