@@ -177,7 +177,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeaderCell" rowHeight="168" id="F9j-1S-VcS" customClass="HeaderCell" customModule="TwitterHamburger" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeaderCell" rowHeight="168" id="F9j-1S-VcS" customClass="HeaderCell" customModule="TwitterHamburger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F9j-1S-VcS" id="DKW-3V-f4t">
@@ -185,7 +185,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfy-GX-LKN">
-                                                    <rect key="frame" x="8" y="8" width="359" height="151.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbx-WK-nTJ">
                                                     <rect key="frame" x="142" y="38" width="90" height="90"/>
@@ -197,11 +197,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="bbx-WK-nTJ" secondAttribute="bottom" constant="31" id="0yh-xg-FKm"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xfy-GX-LKN" secondAttribute="trailing" id="5Mk-6W-9by"/>
-                                                <constraint firstItem="xfy-GX-LKN" firstAttribute="leading" secondItem="DKW-3V-f4t" secondAttribute="leadingMargin" id="6ds-NT-Y90"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="xfy-GX-LKN" secondAttribute="bottom" id="88l-YE-D0w"/>
-                                                <constraint firstItem="xfy-GX-LKN" firstAttribute="top" secondItem="DKW-3V-f4t" secondAttribute="topMargin" id="B3B-sV-mD2"/>
+                                                <constraint firstAttribute="bottom" secondItem="xfy-GX-LKN" secondAttribute="bottom" id="3l2-Th-WF1"/>
+                                                <constraint firstItem="xfy-GX-LKN" firstAttribute="top" secondItem="DKW-3V-f4t" secondAttribute="top" id="5Np-eO-XWz"/>
+                                                <constraint firstItem="xfy-GX-LKN" firstAttribute="leading" secondItem="DKW-3V-f4t" secondAttribute="leading" id="Lng-xd-GwF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bbx-WK-nTJ" secondAttribute="trailing" constant="135" id="VQl-AQ-zQt"/>
+                                                <constraint firstAttribute="trailing" secondItem="xfy-GX-LKN" secondAttribute="trailing" id="jpi-u4-rH8"/>
                                                 <constraint firstItem="bbx-WK-nTJ" firstAttribute="leading" secondItem="DKW-3V-f4t" secondAttribute="leadingMargin" constant="134" id="lCn-ij-Ber"/>
                                                 <constraint firstItem="bbx-WK-nTJ" firstAttribute="top" secondItem="DKW-3V-f4t" secondAttribute="topMargin" constant="30" id="lby-Nd-SPH"/>
                                             </constraints>
@@ -211,7 +211,7 @@
                                             <outlet property="profileImageView" destination="bbx-WK-nTJ" id="0z5-ag-yl0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StatsCell" rowHeight="74" id="aIQ-tm-6MR" customClass="StatsCell" customModule="TwitterHamburger" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StatsCell" rowHeight="74" id="aIQ-tm-6MR" customClass="StatsCell" customModule="TwitterHamburger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="196" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aIQ-tm-6MR" id="AiB-Dv-0k8">
@@ -320,6 +320,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NrQ-pe-7Wz"/>
+                    <connections>
+                        <outlet property="tableView" destination="NDy-5g-OwP" id="oni-dG-gwU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZg-iZ-a72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -76,7 +76,15 @@ class TwitterClient: BDBOAuth1SessionManager {
         }, failure: { (_, error: Error) in
             failure(error)
         })
-        
+    }
+    
+    func userTimeline(success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        get("1.1/statuses/user_timeline.json", parameters: nil, progress: nil, success: {(_, response: Any?) in
+            let tweets = Tweet.tweetsWithArray(dictionaries: response as! [AnyObject])
+            success(tweets)
+        }, failure: {(_, error: Error) in
+            failure(error)
+        })
     }
     
     func tweet(text: String) {
