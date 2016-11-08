@@ -24,5 +24,8 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func onUserImage(_ sender: UIButton) {
+        print("user image tapped")
+    }
 
 }
