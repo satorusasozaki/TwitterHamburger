@@ -87,6 +87,15 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func mentionsTimeline(success: @escaping ([Tweet])->(), failure: @escaping (Error)->()) {
+        get("1.1/statuses/mentions_timeline.json", parameters: nil, progress: nil, success: {(_, response: Any?) -> Void in
+            let tweets = Tweet.tweetsWithArray(dictionaries: response as! [AnyObject])
+            success(tweets)
+        }, failure: {(_, error: Error) -> Void in
+            failure(error)
+        })
+    }
+    
     func getProfileBanner(success: @escaping (URL) -> (), failure: @escaping (Error) -> ()) {
         let id: [String:String] = ["id":String((User.currentUser?.id)!)]
         get("1.1/users/profile_banner.json", parameters: id, progress: nil, success: {(_, response: Any?) in

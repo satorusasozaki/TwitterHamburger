@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ProfileViewController: UIViewController {
 
@@ -20,11 +21,15 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 200
+        let hud = MBProgressHUD()
+        hud.show(animated: true)
         TwitterClient.sharedInstance.userTimeline(success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
+            hud.hide(animated: true)
         }, failure: {(error: Error) in
             print(error.localizedDescription)
+            hud.hide(animated: true)
         })
         
         TwitterClient.sharedInstance.getProfileBanner(success: { (url :URL) in
