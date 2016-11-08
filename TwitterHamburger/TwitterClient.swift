@@ -87,6 +87,20 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func getProfileBanner(success: @escaping (URL) -> (), failure: @escaping (Error) -> ()) {
+        let id: [String:String] = ["id":String((User.currentUser?.id)!)]
+        get("1.1/users/profile_banner.json", parameters: id, progress: nil, success: {(_, response: Any?) in
+            let dictionary = response as? [String:AnyObject]
+            let bannerUrlString = dictionary?["sizes"]?["mobile_retina"] as? String
+            if let bannerUrlString = bannerUrlString {
+                let bannerUrl = URL(string: bannerUrlString)
+                success(bannerUrl!)
+            }
+        }, failure: {(_, error: Error) in
+            print(error.localizedDescription)
+        })
+    }
+    
     func tweet(text: String) {
         let status: [String:String] = ["status":text]
         post("1.1/statuses/update.json", parameters: status, progress: nil, success: {(_, response: Any?) -> Void in

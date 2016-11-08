@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var tweets: [Tweet]!
+    var bannerImageUrl: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,13 @@ class ProfileViewController: UIViewController {
         tableView.estimatedRowHeight = 200
         TwitterClient.sharedInstance.userTimeline(success: { (tweets: [Tweet]) in
             self.tweets = tweets
+            self.tableView.reloadData()
+        }, failure: {(error: Error) in
+            print(error.localizedDescription)
+        })
+        
+        TwitterClient.sharedInstance.getProfileBanner(success: { (url :URL) in
+            self.bannerImageUrl = url
             self.tableView.reloadData()
         }, failure: {(error: Error) in
             print(error.localizedDescription)
