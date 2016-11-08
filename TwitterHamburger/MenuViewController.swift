@@ -54,7 +54,16 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 3 {
-            TwitterClient.sharedInstance.logout()
+            let alert = UIAlertController(title: (User.currentUser?.screenname)!, message: "Are you sure you want to sign out of Twitter?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            let logoutAction = UIAlertAction(title: "Logout", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in
+                TwitterClient.sharedInstance.logout()
+            })
+            alert.addAction(logoutAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
         } else {
             hamburgerViewController.contentViewController = viewControllers[indexPath.row]
         }
