@@ -6,6 +6,11 @@
 //  Copyright © 2016 Satoru Sasozaki. All rights reserved.
 //
 
+//- Create one table view controller
+//- each view controller contains the table VC
+//- Assign the view of table view controller to the view of each view controller
+//- Add tap gesture recognizer in programmatically
+
 import UIKit
 import MBProgressHUD
 
